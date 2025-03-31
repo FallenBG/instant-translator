@@ -2,6 +2,8 @@
 
 Instant Translator is a lightweight Chrome extension that helps users translate text on the fly using a designated hotkey (Default suggested key: `Ctrl+Shift+S`). A small, non-intrusive popup window appears near the active input field, allowing seamless translation without leaving the current tab or breaking your workflow.
 
+## !!! You MUST obtain API credentials for the translation service you wish to use and enter them into the extension's Options page. !!!
+
 ## ✨ Key Features
 
 *   **🔑 Quick Activation with Hotkey:** Press `Ctrl+Shift+S` (or your custom key via `chrome://extensions/shortcuts`) to open the translation popup instantly.
