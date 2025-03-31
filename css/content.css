@@ -1,0 +1,10 @@
+/* css/content.css */
+/* Styles for the iframe container injected into the page */
+#instant-translator-iframe {
+    position: absolute;
+    z-index: 999999; /* High z-index */
+    border: none; /* Border is handled by popup.css inside the iframe */
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    overflow: hidden; /* Prevents content spillover */
+  }

@@ -1,0 +1,70 @@
+/* css/popup.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 14px;
+    width: 290px; /* Slightly wider to maybe fit buttons side-by-side */
+    height: 185px; /* Increased height for buttons */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    background-color: #fff;
+  }
+  
+  #translator-input {
+    width: 95%;
+    height: 50px; /* Keep input size */
+    margin: 5px auto;
+    border: 1px solid #ddd;
+    resize: none;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  
+  #translator-output {
+    width: 95%;
+    height: 70px; /* Keep output size */
+    margin: 0 auto 5px auto; /* Space below output */
+    border: 1px solid #eee;
+    background-color: #f9f9f9;
+    padding: 5px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+  
+  #translator-output:empty::before {
+      content: 'Translation will appear here...';
+      color: #999;
+  }
+  
+  /* New styles for buttons */
+  #button-container {
+      display: flex;
+      justify-content: flex-end; /* Align buttons to the right */
+      padding: 0 7px 5px 7px; /* Padding around buttons */
+      gap: 8px; /* Space between buttons */
+  }
+  
+  #button-container button {
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      background-color: #f0f0f0;
+      border-radius: 3px;
+  }
+  
+  #button-container button:hover {
+      background-color: #e0e0e0;
+      border-color: #bbb;
+  }
+  
+  #button-container button:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+      background-color: #f8f8f8;
+  }

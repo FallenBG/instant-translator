@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instant Translator Settings</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 600px;}
+        label { display: block; margin-top: 15px; margin-bottom: 5px; font-weight: bold;}
+        select, input[type="text"], input[type="password"] { width: 95%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; max-width: 400px;}
+        button { padding: 10px 18px; margin-top: 20px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px;}
+        button:hover { background-color: #0056b3; }
+        #status { margin-top: 15px; color: green; font-weight: bold; }
+        .info { font-size: 0.9em; color: #555; margin-top: -5px; margin-bottom: 15px; }
+        .api-section { border: 1px solid #eee; padding: 15px; margin-top: 20px; border-radius: 5px; }
+        .api-section h3 { margin-top: 0; color: #333; }
+        .warning { color: #a00; font-weight: bold; background-color: #fdd; padding: 10px; border-radius: 4px; margin-top: 5px; }
+         #hotkey-info { background-color: #eee; padding: 10px; border-radius: 4px; margin-top: 20px;}
+    </style>
+</head>
+<body>
+    <h1>Instant Translator Settings</h1>
+
+    <label for="api-service">Translation API Service:</label>
+    <select id="api-service">
+        <option value="google">Google Cloud Translate</option>
+        <option value="baidu">Baidu Translate</option>
+        <option value="tencent">Tencent Translate (Experimental)</option>
+    </select>
+    <div class="info">Choose the translation service to use. Requires API keys below.</div>
+
+    <label for="source-lang">Default Source Language:</label>
+    <select id="source-lang">
+        <option value="auto">Auto Detect</option>
+        <option value="en">English (en)</option>
+        <option value="zh">Chinese (zh)</option>
+        <option value="fr">French (fr)</option>
+        <option value="de">German (de)</option>
+        <option value="ja">Japanese (ja)</option>
+        <option value="ko">Korean (ko)</option>
+        <option value="es">Spanish (es)</option>
+        <option value="ru">Russian (ru)</option>
+        <!-- Add more common languages with codes -->
+    </select>
+
+    <label for="target-lang">Default Target Language:</label>
+    <select id="target-lang">
+        <option value="en">English (en)</option>
+        <option value="zh">Chinese (zh)</option>
+        <option value="fr">French (fr)</option>
+        <option value="de">German (de)</option>
+        <option value="ja">Japanese (ja)</option>
+        <option value="ko">Korean (ko)</option>
+        <option value="es">Spanish (es)</option>
+        <option value="ru">Russian (ru)</option>
+         <!-- Add more common languages with codes -->
+    </select>
+
+    <div class="api-section">
+        <h3>Google Cloud Translation API</h3>
+         <label for="google-api-key">API Key:</label>
+         <input type="password" id="google-api-key" placeholder="Enter your Google Cloud API Key">
+         <div class="info">Requires enabling the Cloud Translation API in your Google Cloud project.</div>
+    </div>
+
+    <!-- THIS IS THE SECTION YOU NEED -->
+    <div class="api-section">
+        <h3>Baidu Translate API (General Purpose)</h3>
+        <label for="baidu-app-id">App ID:</label>
+        <input type="text" id="baidu-app-id" placeholder="Enter your Baidu App ID">
+        <label for="baidu-secret-key">Secret Key:</label>
+        <input type="password" id="baidu-secret-key" placeholder="Enter your Baidu Secret Key">
+        <div class="info">Requires registering for the Baidu Translate API.</div>
+    </div>
+    <!-- END OF BAIDU SECTION -->
+
+     <div class="api-section">
+        <h3>Tencent Translate API (TMT)</h3>
+        <label for="tencent-secret-id">Secret ID:</label>
+        <input type="text" id="tencent-secret-id" placeholder="Enter your Tencent Cloud Secret ID">
+        <label for="tencent-secret-key">Secret Key:</label>
+        <input type="password" id="tencent-secret-key" placeholder="Enter your Tencent Cloud Secret Key">
+        <div class="warning">Warning: Due to complex and insecure client-side signing requirements, direct Tencent API calls from the extension are highly discouraged and may not work reliably or securely. A server-side proxy is recommended. This option is experimental.</div>
+    </div>
+
+
+    <div id="hotkey-info">
+        <strong>Activation Hotkey:</strong>
+        <p>The default hotkey is F2. You can change this in Chrome's extension shortcuts page:</p>
+        <p><a href="chrome://extensions/shortcuts" target="_blank">chrome://extensions/shortcuts</a></p>
+    </div>
+
+
+    <button id="save">Save Settings</button>
+    <div id="status"></div>
+
+    <script src="../js/options.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "Instant Translator",
+  "version": "1.1",
+  "description": "Translate text on the fly near input fields using a hotkey (Default: Ctrl+Shift+S).",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "commands"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://fanyi-api.baidu.com/*",
+    "https://translation.googleapis.com/*",
+    "https://tmt.tencentcloudapi.com/*"
+  ],
+  "background": {
+    "service_worker": "utils/md5.min.js",
+    "service_worker": "js/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["utils/debounce.js", "js/content.js"],
+      "css": ["css/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "html/options.html",
+  "commands": {
+    "toggle-translator": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Toggle Translator Popup"
+    }
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Instant Translator Options"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [ "html/popup.html", "css/popup.css", "js/popup.js", "utils/debounce.js" ],
+      "matches": [ "<all_urls>" ]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
