@@ -1,12 +1,13 @@
 # 🚀 Instant Translator Chrome Extension
 
-Instant Translator is a lightweight Chrome extension that helps users translate text on the fly using a designated hotkey (Default: Ctrl+Shift+S). A small, non-intrusive popup window appears near the active input field, allowing seamless translation without leaving the current tab or breaking your workflow.
+Instant Translator is a lightweight Chrome extension that helps users translate text on the fly using a designated hotkey (Default suggested key: `Ctrl+Shift+S`). A small, non-intrusive popup window appears near the active input field, allowing seamless translation without leaving the current tab or breaking your workflow.
 
 ## ✨ Key Features
 
-*   **🔑 Quick Activation with Hotkey:** Press Ctrl+Shift+S (or your custom key via `chrome://extensions/shortcuts`) to open the translation popup instantly.
+*   **🔑 Quick Activation with Hotkey:** Press `Ctrl+Shift+S` (or your custom key via `chrome://extensions/shortcuts`) to open the translation popup instantly.
 *   **📍 Smart Popup Positioning:** Automatically opens near the currently focused input field (text box, textarea, contenteditable element).
 *   **🌐 Customizable Languages:** Set your preferred default From and To languages for instant translations via the Options page.
+*   **🖱️ Quick Actions:** Copy the translation to the clipboard or insert it directly into the original input field using dedicated buttons or keyboard shortcuts.
 *   **🔧 Multiple API Support:** Choose between Google Cloud Translate or Baidu Translate. (Tencent Translate option exists but is **not recommended** for client-side use due to security/complexity).
 *   **🎯 Minimal and Fast:** Optimized for performance, the translation popup is lightweight and distraction-free.
 *   **⚙️ Configurable:** Set API keys and language preferences in the extension options.
@@ -14,12 +15,15 @@ Instant Translator is a lightweight Chrome extension that helps users translate 
 ## 🧠 How It Works
 
 1.  Focus an input field (like a text box or textarea) on any webpage.
-2.  Press the designated hotkey (default: **Ctrl+Shift+S**).
+2.  Press the designated hotkey (default suggestion: **`Ctrl+Shift+S`** - configurable in Chrome).
 3.  A small popup window will appear near the input field.
 4.  Type or paste the text you want to translate into the top box of the popup.
-5.  The translated result appears in the bottom box after a short delay (debounced to prevent excessive API calls).
-6.  Click the translated text to copy it to your clipboard.
-7.  Click outside the popup or press the `Esc` key to close it.
+5.  The translated result appears in the bottom box after a short delay.
+6.  **Perform an action:**
+    *   Click the **Copy** button to copy the translation to your clipboard.
+    *   Click the **Insert** button to place the translation directly into the input field you originally focused. The popup will close automatically.
+    *   Press **Enter** (while the cursor is still in the popup's *top input box*) to insert the translation into the original field. The popup will close automatically.
+7.  Click outside the popup or press the `Esc` key to close it without inserting.
 
 ## ⚙️ Settings
 
@@ -29,7 +33,7 @@ You can configure the following by right-clicking the extension icon and selecti
 *   **API Keys/Credentials:** Enter the necessary API keys/secrets for your chosen service (see **API Credentials Setup** below).
 *   **Default Source Language:** Language you usually write in (e.g., `auto`, `en`, `zh`).
 *   **Default Target Language:** Language you want translations in (e.g., `en`, `zh`, `fr`).
-*   **Hotkey:** The activation hotkey (default Ctrl+Shift+S) can be changed in Chrome's main extension shortcuts page: `chrome://extensions/shortcuts`
+*   **Hotkey:** The activation hotkey can be changed from the default suggestion (**`Ctrl+Shift+S`**) in Chrome's main extension shortcuts page: `chrome://extensions/shortcuts`. *(Note: F2 might conflict with OS or browser functions).*
 
 ## 🔧 Requirements
 
@@ -52,7 +56,6 @@ You **MUST** obtain API credentials for the translation service you wish to use 
 **🚨 IMPORTANT SECURITY WARNING:**
 *   **NEVER share your API keys or secrets.** Do not commit them to public code repositories (like GitHub). Keep them confidential.
 *   Be aware of the **pricing and quotas** associated with each service. While they often have free tiers, heavy usage may incur costs. Monitor your usage via their respective cloud consoles.
-
 ---
 
 ### 1. Google Cloud Translation API
@@ -100,13 +103,5 @@ You **MUST** obtain API credentials for the translation service you wish to use 
 5.  Click the **Load unpacked** button.
 6.  Select the `instant-translator` folder you created.
 7.  The extension icon should appear in your toolbar. Right-click it and select "Options" to configure API keys and preferences.
-8.  Configure your desired hotkey (if different from Ctrl+Shift+S) at `chrome://extensions/shortcuts`.
+8.  Configure your desired hotkey (if different from the suggested `Ctrl+Shift+S`) at `chrome://extensions/shortcuts`.
 9.  You're ready to go!
-
-## 💬 Future Plans
-
-*   Speech-to-text input
-*   Keyboard-only mode for result selection/insertion
-*   Contextual translations using AI (potentially via newer API features)
-*   Support for dark mode
-*   Option to automatically insert translation back into the input field
